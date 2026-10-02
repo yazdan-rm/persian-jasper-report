@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: persian-jasper-report
+  datasource:
+    username: ${DATABASE_USERNAME:jmix}
+    password: ${DATABASE_PASSWORD:jmix}
+    url: jdbc:oracle:thin:@//localhost:1521/FREE
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+app:
+  demo-data:
+    enabled: ${DEMO_DATA_ENABLED:true}
+  report:
+    zone-id: ${REPORT_TIME_ZONE:Asia/Tehran}
+    currency: ${REPORT_CURRENCY:ریال}
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE

@@ -1,0 +1,212 @@
+<!-- Created with Jaspersoft Studio version 7.0.8.final using JasperReports Library version 7.0.8-6f896111  -->
+<jasperReport name="SalesPerformance" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="794" leftMargin="24" rightMargin="24" topMargin="18" bottomMargin="18" uuid="37cb57c1-9390-43bf-bf8a-798cfc7a17f4">
+    <property name="net.sf.jasperreports.export.xlsx.freeze.row" value="2"/>
+    <style name="Base" default="true" forecolor="#242B41" fontName="B Yekan" fontSize="9.0"/>
+    <style name="Small" forecolor="#697089" fontName="B Yekan" fontSize="7.5"/>
+    <style name="Label" forecolor="#697089" fontName="B Yekan" fontSize="8.0" bold="true" hTextAlign="Right"/>
+    <style name="Heading" forecolor="#242B41" fontName="B Yekan" fontSize="18.0" bold="true" hTextAlign="Right"/>
+    <style name="TableHeader" forecolor="#FFFFFF" fontName="B Yekan" fontSize="8.0" bold="true" hTextAlign="Right"/>
+    <dataset name="MonthlyRevenueDataset" uuid="2219f639-222e-4c8a-9b45-6a609454d4f8">
+        <field name="label" class="java.lang.String"/>
+        <field name="amount" class="java.math.BigDecimal"/>
+    </dataset>
+    <dataset name="CategoryRevenueDataset" uuid="dbf53c2c-0e84-4abe-8286-f330646e3772">
+        <field name="label" class="java.lang.String"/>
+        <field name="amount" class="java.math.BigDecimal"/>
+    </dataset>
+    <parameter name="REPORT_LOGO" class="byte[]"/>
+    <parameter name="COMPANY_NAME" class="java.lang.String"/>
+    <parameter name="COMPANY_CONTACT" class="java.lang.String"/>
+    <parameter name="COMPANY_LEGAL" class="java.lang.String"/>
+    <parameter name="REPORT_PERIOD" class="java.lang.String"/>
+    <parameter name="GENERATED_AT" class="java.lang.String"/>
+    <parameter name="CURRENCY" class="java.lang.String"/>
+    <parameter name="TOTAL_REVENUE" class="java.lang.String"/>
+    <parameter name="ORDER_COUNT" class="java.lang.String"/>
+    <parameter name="UNITS_SOLD" class="java.lang.String"/>
+    <parameter name="AVERAGE_ORDER" class="java.lang.String"/>
+    <parameter name="MONTHLY_DATA_SOURCE" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <parameter name="CATEGORY_DATA_SOURCE" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <field name="invoiceNumber" class="java.lang.String"/>
+    <field name="saleDate" class="java.time.LocalDate"/>
+    <field name="customerName" class="java.lang.String"/>
+    <field name="productName" class="java.lang.String"/>
+    <field name="category" class="java.lang.String"/>
+    <field name="quantity" class="java.lang.Integer"/>
+    <field name="unitPrice" class="java.math.BigDecimal"/>
+    <field name="totalAmount" class="java.math.BigDecimal"/>
+    <title height="405">
+        <element kind="rectangle" uuid="e229a356-e149-4fa2-8410-d91846168b85" x="0" y="0" width="794" height="67" forecolor="#F4F7FF" backcolor="#F4F7FF" mode="Opaque" radius="12"/>
+        <element kind="image" uuid="a351c79a-af15-42a1-a87d-e6f5bf096893" x="14" y="8" width="220" height="50" scaleImage="RetainShape" onErrorType="Blank">
+            <expression><![CDATA[$P{REPORT_LOGO}]]></expression>
+        </element>
+        <element kind="textField" uuid="84b7a91e-c9b9-46ec-b039-e3ade3d2207e" x="274" y="10" width="504" height="16" forecolor="#242B41" fontSize="11.0" bold="true" hTextAlign="Right">
+            <expression><![CDATA[$P{COMPANY_NAME}]]></expression>
+        </element>
+        <element kind="textField" uuid="37cc5957-e63e-4a3c-8ffb-f84274737500" x="274" y="29" width="504" height="13" hTextAlign="Right" style="Small">
+            <expression><![CDATA[$P{COMPANY_CONTACT}]]></expression>
+        </element>
+        <element kind="textField" uuid="a25ce185-37df-424e-918f-582ef03f56ea" x="274" y="45" width="504" height="12" hTextAlign="Right" style="Small">
+            <expression><![CDATA[$P{COMPANY_LEGAL}]]></expression>
+        </element>
+        <element kind="staticText" uuid="5e6f71c5-739f-4290-a9f8-e93a9ae7ff51" x="364" y="82" width="430" height="24" style="Heading">
+            <text><![CDATA[گزارش عملکرد فروش]]></text>
+        </element>
+        <element kind="textField" uuid="5fa027ca-8b38-45de-882c-2d0ed4cc1543" x="364" y="108" width="430" height="14" forecolor="#697089" fontSize="9.0" hTextAlign="Right">
+            <expression><![CDATA["دوره گزارش:  " + $P{REPORT_PERIOD}]]></expression>
+        </element>
+        <element kind="textField" uuid="4db18fc0-650a-4d47-a85c-d9b4386a75d4" x="0" y="88" width="289" height="13" style="Small">
+            <expression><![CDATA["تاریخ تهیه: " + $P{GENERATED_AT}]]></expression>
+        </element>
+        <element kind="staticText" uuid="a93e8c1b-d50c-4a74-a178-b8b38ee10480" x="0" y="104" width="289" height="13" forecolor="#845EF7" fontSize="7.5" bold="true">
+            <text><![CDATA[محرمانه • ویژه استفاده مدیریت]]></text>
+        </element>
+        <element kind="rectangle" uuid="bff3c5f4-d85a-424a-87ac-2f40d7adf905" x="0" y="137" width="188" height="66" forecolor="#EEF2FF" backcolor="#EEF2FF" mode="Opaque" radius="12"/>
+        <element kind="staticText" uuid="5fcc90c9-7704-407f-94ab-f1ae12f2db27" x="14" y="149" width="160" height="12" style="Label">
+            <text><![CDATA[درآمد کل]]></text>
+        </element>
+        <element kind="textField" uuid="e6f2f90e-5cb7-41a0-9b33-031690ea49aa" x="14" y="168" width="160" height="25" forecolor="#4D6FFF" fontSize="16.0" bold="true">
+            <expression><![CDATA[$P{TOTAL_REVENUE}]]></expression>
+        </element>
+        <element kind="rectangle" uuid="318ef4b8-50ba-41e8-ab09-2dd3045807ae" x="202" y="137" width="188" height="66" forecolor="#F3EEFF" backcolor="#F3EEFF" mode="Opaque" radius="12"/>
+        <element kind="staticText" uuid="64fd4c2d-381b-48c6-987c-138f8c28c461" x="216" y="149" width="160" height="12" style="Label">
+            <text><![CDATA[تعداد فروش‌ها]]></text>
+        </element>
+        <element kind="textField" uuid="2965f8c1-1ee2-4266-83db-a615e461c0d4" x="216" y="168" width="160" height="25" forecolor="#845EF7" fontSize="16.0" bold="true">
+            <expression><![CDATA[$P{ORDER_COUNT}]]></expression>
+        </element>
+        <element kind="rectangle" uuid="a7e02f28-94dc-4315-8204-bd69db8133fe" x="404" y="137" width="188" height="66" forecolor="#EAFBF8" backcolor="#EAFBF8" mode="Opaque" radius="12"/>
+        <element kind="staticText" uuid="39e26748-9341-4e50-8b2a-ae91a85a97de" x="418" y="149" width="160" height="12" style="Label">
+            <text><![CDATA[تعداد فروش]]></text>
+        </element>
+        <element kind="textField" uuid="202fc065-45db-4676-a268-a5687c823209" x="418" y="168" width="160" height="25" forecolor="#00A896" fontSize="16.0" bold="true">
+            <expression><![CDATA[$P{UNITS_SOLD}]]></expression>
+        </element>
+        <element kind="rectangle" uuid="228a1ee4-5212-4dbc-a8d9-6f1f174a675d" x="606" y="137" width="188" height="66" forecolor="#FFF0EE" backcolor="#FFF0EE" mode="Opaque" radius="12"/>
+        <element kind="staticText" uuid="8ee81cee-9a4b-4cb9-9b37-7a188882e95f" x="620" y="149" width="160" height="12" style="Label">
+            <text><![CDATA[میانگین ارزش فروش]]></text>
+        </element>
+        <element kind="rectangle" uuid="e442969a-45cf-48ed-a3ac-03af2be00cda" x="0" y="218" width="480" height="158" forecolor="#E8EAF2" backcolor="#FFFFFF" mode="Opaque" radius="12">
+            <pen lineWidth="0.6"/>
+        </element>
+        <element kind="staticText" uuid="991f9b95-a590-4dc6-b72a-b1299bd3b479" x="216" y="229" width="250" height="15" fontSize="10.0" bold="true" hTextAlign="Right">
+            <text><![CDATA[روند ماهانه درآمد]]></text>
+        </element>
+        <element kind="chart" chartType="bar" uuid="06bb6868-03c2-4297-859f-b7a53b801a76" x="12" y="249" width="458" height="116" showLegend="false" backcolor="#FFFFFF">
+            <dataset kind="category">
+                <datasetRun subDataset="MonthlyRevenueDataset">
+                    <dataSourceExpression><![CDATA[$P{MONTHLY_DATA_SOURCE}]]></dataSourceExpression>
+                </datasetRun>
+                <series>
+                    <seriesExpression><![CDATA["درآمد"]]></seriesExpression>
+                    <categoryExpression><![CDATA[$F{label}]]></categoryExpression>
+                    <valueExpression><![CDATA[$F{amount}]]></valueExpression>
+                </series>
+            </dataset>
+            <plot orientation="Vertical" backgroundAlpha="0.0" foregroundAlpha="1.0" showTickMarks="true" showTickLabels="true">
+                <seriesColor order="0" color="#4D6FFF"/>
+            </plot>
+        </element>
+        <element kind="rectangle" uuid="43b6f1f4-06b9-41a0-81e8-569126e66b96" x="540" y="218" width="254" height="158" forecolor="#E8EAF2" backcolor="#FFFFFF" mode="Opaque" radius="12">
+            <pen lineWidth="0.6"/>
+        </element>
+        <element kind="staticText" uuid="ea226ea9-f53e-442a-95d3-d0a361529bd3" x="550" y="230" width="220" height="15" fontSize="10.0" bold="true" hTextAlign="Right">
+            <text><![CDATA[درآمد بر اساس گروه کالا]]></text>
+        </element>
+        <element kind="chart" chartType="pie" uuid="13383857-ee08-46d3-97a8-68879ed0bf6f" x="550" y="249" width="232" height="116" showLegend="false" backcolor="#FFFFFF">
+            <dataset kind="pie">
+                <datasetRun subDataset="CategoryRevenueDataset">
+                    <dataSourceExpression><![CDATA[$P{CATEGORY_DATA_SOURCE}]]></dataSourceExpression>
+                </datasetRun>
+                <keyExpression><![CDATA[$F{label}]]></keyExpression>
+                <valueExpression><![CDATA[$F{amount}]]></valueExpression>
+                <labelExpression><![CDATA[$F{label}]]></labelExpression>
+            </dataset>
+            <plot backgroundAlpha="0.0" foregroundAlpha="1.0"/>
+        </element>
+        <element kind="staticText" uuid="0dba9299-4e0c-43c6-9cce-0a63993c6926" x="474" y="390" width="320" height="15" fontSize="11.0" bold="true" hTextAlign="Right">
+            <text><![CDATA[جزئیات فروش]]></text>
+        </element>
+        <element kind="textField" uuid="65aa6b34-1443-4275-bcfd-2aa491432b11" x="0" y="391" width="294" height="12" style="Small">
+            <expression><![CDATA["مبالغ درآمد به " + $P{CURRENCY} + " نمایش داده شده‌اند"]]></expression>
+        </element>
+        <element kind="textField" uuid="06ed0b5c-21cb-4888-a24c-8b617e4eb1ce" x="620" y="168" width="160" height="25" forecolor="#F03E50" fontSize="16.0" bold="true">
+            <expression><![CDATA[$P{AVERAGE_ORDER}]]></expression>
+        </element>
+    </title>
+    <columnHeader height="28">
+        <element kind="rectangle" uuid="549ad176-cf94-48bd-a061-bf1aec03485f" x="0" y="0" width="794" height="28" forecolor="#242B41" backcolor="#242B41" mode="Opaque" radius="8"/>
+        <element kind="staticText" uuid="a63a3b1b-389f-464e-9e8a-c1c86a10beb1" x="8" y="8" width="44" height="12" style="TableHeader">
+            <text><![CDATA[فاکتور]]></text>
+        </element>
+        <element kind="staticText" uuid="7dad4348-d5a1-47a4-bcec-064269c09d4a" x="60" y="8" width="235" height="12" style="TableHeader">
+            <text><![CDATA[محصول]]></text>
+        </element>
+        <element kind="staticText" uuid="b74a60a5-f35e-4da7-ae28-cac68fd7389c" x="305" y="8" width="80" height="12" style="TableHeader">
+            <text><![CDATA[مشتری]]></text>
+        </element>
+        <element kind="staticText" uuid="06e89cfd-f3ca-427d-a94b-67b70376a4fd" x="395" y="8" width="110" height="12" style="TableHeader">
+            <text><![CDATA[گروه]]></text>
+        </element>
+        <element kind="staticText" uuid="8de54108-26fc-4a69-986a-97c3ac6ef5e7" x="515" y="8" width="55" height="12" hTextAlign="Right" style="TableHeader">
+            <text><![CDATA[تعداد]]></text>
+        </element>
+        <element kind="staticText" uuid="d2871797-7c58-4c35-a20c-e29f7478a22e" x="580" y="8" width="115" height="12" hTextAlign="Right" style="TableHeader">
+            <text><![CDATA[درآمد]]></text>
+        </element>
+        <element kind="staticText" uuid="a878fa24-2a59-4aad-96a6-fb3fb312f73a" x="705" y="8" width="75" height="12" hTextAlign="Right" style="TableHeader">
+            <text><![CDATA[قیمت واحد]]></text>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="46">
+            <element kind="line" uuid="ab9a6a1e-aac2-4e08-86f7-05bea42cbcc1" x="0" y="45" width="794" height="1" forecolor="#E8EAF2">
+                <pen lineWidth="0.5"/>
+            </element>
+            <element kind="textField" uuid="ca741a41-d4a8-4312-9401-4871bcb668df" x="5" y="14" width="40" height="16" fontSize="7.0">
+                <expression><![CDATA[$F{invoiceNumber}]]></expression>
+            </element>
+            <element kind="textField" uuid="721d4958-5098-4665-a78e-ebcbed619e30" x="60" y="14" width="235" height="16" fontSize="9.0" bold="true" hTextAlign="Right">
+                <expression><![CDATA[$F{productName}]]></expression>
+            </element>
+            <element kind="textField" uuid="59e4feca-d13c-4a88-b6b6-b2070fba534b" x="305" y="14" width="80" height="16" forecolor="#4D6FFF" linkType="None" linkTarget="Self">
+                <expression><![CDATA[$F{customerName}]]></expression>
+            </element>
+            <element kind="textField" uuid="e383816c-b311-4172-9fcd-940a0372c286" x="395" y="14" width="110" height="16" hTextAlign="Right">
+                <expression><![CDATA[$F{category}]]></expression>
+            </element>
+            <element kind="textField" uuid="48d2f581-e858-4c54-8823-c404e201312e" x="515" y="14" width="55" height="16" pattern="#,##0" hTextAlign="Right">
+                <expression><![CDATA[$F{quantity}]]></expression>
+            </element>
+            <element kind="textField" uuid="5b2d2cee-46ed-410f-a686-bcd3a508dd14" x="580" y="14" width="115" height="16" pattern="#,##0.00" hTextAlign="Right">
+                <expression><![CDATA[$F{totalAmount}]]></expression>
+            </element>
+            <element kind="textField" uuid="efbc8cb4-cd3a-4445-8b67-b22ae79b5913" x="705" y="14" width="75" height="16" forecolor="#845EF7" pattern="#,##0.00" bold="true" hTextAlign="Right">
+                <expression><![CDATA[$F{unitPrice}]]></expression>
+            </element>
+        </band>
+    </detail>
+    <pageFooter height="24">
+        <element kind="line" uuid="744359e3-29e2-4542-888f-87a949266c87" x="0" y="1" width="794" height="1" forecolor="#E8EAF2">
+            <pen lineWidth="0.5"/>
+        </element>
+        <element kind="staticText" uuid="4373a9dd-a2f1-41be-adbd-3ed0be5a3ff2" x="0" y="8" width="380" height="12" style="Small">
+            <text><![CDATA[تحلیل داده نوآوران • گزارش محرمانه مدیریت]]></text>
+        </element>
+        <element kind="textField" uuid="b1710905-f0e3-4037-9e46-c79a6518733a" x="650" y="8" width="60" height="12" hTextAlign="Right" style="Small">
+            <expression><![CDATA["صفحه " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+        <element kind="staticText" uuid="f62fc8e5-a396-4d67-83fe-0e0a2c276ea3" x="710" y="8" width="10" height="12" hTextAlign="Center" style="Small">
+            <text><![CDATA[/]]></text>
+        </element>
+        <element kind="textField" uuid="6382d302-0589-4a24-a39f-9ed7235bb46d" x="720" y="8" width="60" height="12" evaluationTime="Report" style="Small">
+            <expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+        </element>
+    </pageFooter>
+    <noData height="54">
+        <element kind="rectangle" uuid="641f0b88-e832-4a2c-9376-38568f0ba344" x="0" y="6" width="794" height="42" forecolor="#E8EAF2" backcolor="#F8F9FC" mode="Opaque" radius="10"/>
+        <element kind="staticText" uuid="27887162-e8cf-4ad0-bafa-dcbacb71c64f" x="20" y="19" width="754" height="16" forecolor="#697089" fontSize="10.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[در این دوره، فروش تأییدشده‌ای ثبت نشده است.]]></text>
+        </element>
+    </noData>
+</jasperReport>
