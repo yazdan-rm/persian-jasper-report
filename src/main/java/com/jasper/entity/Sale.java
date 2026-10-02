@@ -1,7 +1,5 @@
-package com.jmix.entity;
+package com.jasper.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,8 +15,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "sale")
-@Getter
-@NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
 public class Sale {
 
     @Id
@@ -47,6 +43,8 @@ public class Sale {
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal unitPrice;
 
+    protected Sale() {
+    }
     public Sale(String invoiceNumber, LocalDate saleDate, String customerName, String productName,
                 String category, int quantity, BigDecimal unitPrice) {
         this.invoiceNumber = invoiceNumber;
@@ -58,6 +56,37 @@ public class Sale {
         this.unitPrice = unitPrice;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public LocalDate getSaleDate() {
+        return saleDate;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
     @Transient
     public BigDecimal getTotalAmount() {
         return unitPrice.multiply(BigDecimal.valueOf(quantity));

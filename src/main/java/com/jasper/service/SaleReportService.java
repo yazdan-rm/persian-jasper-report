@@ -1,12 +1,12 @@
-package com.jmix.service;
+package com.jasper.service;
 
-import com.jmix.entity.Sale;
-import com.jmix.exception.ReportGenerationException;
-import com.jmix.report.GeneratedDocument;
-import com.jmix.report.JasperReportGenerator;
-import com.jmix.report.ReportFormat;
-import com.jmix.report.ReportPeriod;
-import com.jmix.repository.SaleRepository;
+import com.jasper.entity.Sale;
+import com.jasper.exception.ReportGenerationException;
+import com.jasper.report.GeneratedDocument;
+import com.jasper.report.JasperReportGenerator;
+import com.jasper.report.ReportFormat;
+import com.jasper.report.ReportPeriod;
+import com.jasper.repository.SaleRepository;
 import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;

@@ -1,4 +1,4 @@
-package com.jmix.exception;
+package com.jasper.exception;
 
 public class ReportGenerationException extends RuntimeException {
 

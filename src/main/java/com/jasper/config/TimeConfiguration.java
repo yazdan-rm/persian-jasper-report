@@ -1,4 +1,4 @@
-package com.jmix.config;
+package com.jasper.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

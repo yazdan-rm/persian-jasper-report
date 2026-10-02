@@ -1,6 +1,6 @@
-package com.jmix.repository;
+package com.jasper.repository;
 
-import com.jmix.entity.Sale;
+import com.jasper.entity.Sale;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

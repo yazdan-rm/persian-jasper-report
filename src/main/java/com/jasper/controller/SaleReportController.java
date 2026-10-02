@@ -1,10 +1,9 @@
-package com.jmix.controller;
+package com.jasper.controller;
 
-import com.jmix.report.GeneratedDocument;
-import com.jmix.report.ReportFormat;
-import com.jmix.report.ReportPeriod;
-import com.jmix.service.SaleReportService;
-import lombok.RequiredArgsConstructor;
+import com.jasper.report.GeneratedDocument;
+import com.jasper.report.ReportFormat;
+import com.jasper.report.ReportPeriod;
+import com.jasper.service.SaleReportService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ContentDisposition;
@@ -20,12 +19,16 @@ import java.time.Clock;
 import java.time.LocalDate;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/reports")
 public class SaleReportController {
 
     private final SaleReportService reportService;
     private final Clock clock;
+
+    public SaleReportController(SaleReportService reportService, Clock clock) {
+        this.reportService = reportService;
+        this.clock = clock;
+    }
 
     @GetMapping("/sales.{format}")
     public ResponseEntity<byte[]> download(

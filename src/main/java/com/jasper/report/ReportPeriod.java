@@ -1,6 +1,6 @@
-package com.jmix.report;
+package com.jasper.report;
 
-import com.jmix.exception.InvalidReportRequestException;
+import com.jasper.exception.InvalidReportRequestException;
 import java.time.Clock;
 import java.time.LocalDate;
 

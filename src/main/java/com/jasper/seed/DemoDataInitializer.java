@@ -1,8 +1,7 @@
-package com.jmix.seed;
+package com.jasper.seed;
 
-import com.jmix.entity.Sale;
-import com.jmix.repository.SaleRepository;
-import lombok.RequiredArgsConstructor;
+import com.jasper.entity.Sale;
+import com.jasper.repository.SaleRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -14,12 +13,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 @ConditionalOnProperty(name = "app.demo-data.enabled", havingValue = "true", matchIfMissing = true)
 public class DemoDataInitializer implements ApplicationRunner {
 
     private final SaleRepository repository;
     private final Clock clock;
+
+    public DemoDataInitializer(SaleRepository repository, Clock clock) {
+        this.repository = repository;
+        this.clock = clock;
+    }
 
     @Override
     public void run(ApplicationArguments args) {

@@ -1,4 +1,4 @@
-package com.jmix.exception;
+package com.jasper.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;

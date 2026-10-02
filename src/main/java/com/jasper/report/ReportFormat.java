@@ -1,6 +1,6 @@
-package com.jmix.report;
+package com.jasper.report;
 
-import com.jmix.exception.InvalidReportRequestException;
+import com.jasper.exception.InvalidReportRequestException;
 import org.springframework.http.MediaType;
 
 import java.util.Locale;

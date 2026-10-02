@@ -1,7 +1,7 @@
-package com.jmix.report;
+package com.jasper.report;
 
-import com.jmix.entity.Sale;
-import com.jmix.exception.ReportGenerationException;
+import com.jasper.entity.Sale;
+import com.jasper.exception.ReportGenerationException;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;

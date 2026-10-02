@@ -1,4 +1,4 @@
-package com.jmix.report;
+package com.jasper.report;
 
 import org.springframework.http.MediaType;
 

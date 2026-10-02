@@ -92,19 +92,43 @@
         <element kind="staticText" uuid="991f9b95-a590-4dc6-b72a-b1299bd3b479" x="216" y="229" width="250" height="15" fontSize="10.0" bold="true" hTextAlign="Right">
             <text><![CDATA[روند ماهانه درآمد]]></text>
         </element>
-        <element kind="chart" chartType="bar" uuid="06bb6868-03c2-4297-859f-b7a53b801a76" x="12" y="249" width="458" height="116" showLegend="false" backcolor="#FFFFFF">
+        <element kind="chart"
+                 chartType="bar"
+                 uuid="06bb6868-03c2-4297-859f-b7a53b801a76"
+                 x="12"
+                 y="249"
+                 width="458"
+                 height="116"
+                 showLegend="false"
+                 backcolor="#FFFFFF">
+
             <dataset kind="category">
                 <datasetRun subDataset="MonthlyRevenueDataset">
                     <dataSourceExpression><![CDATA[$P{MONTHLY_DATA_SOURCE}]]></dataSourceExpression>
                 </datasetRun>
+
                 <series>
                     <seriesExpression><![CDATA["درآمد"]]></seriesExpression>
                     <categoryExpression><![CDATA[$F{label}]]></categoryExpression>
                     <valueExpression><![CDATA[$F{amount}]]></valueExpression>
                 </series>
             </dataset>
-            <plot orientation="Vertical" backgroundAlpha="0.0" foregroundAlpha="1.0" showTickMarks="true" showTickLabels="true">
+
+            <plot orientation="Vertical"
+                  backgroundAlpha="0.0"
+                  foregroundAlpha="1.0"
+                  showTickMarks="false"
+                  showTickLabels="true"
+                  showLabels="true">
+
+                <!-- Main brand color -->
                 <seriesColor order="0" color="#4D6FFF"/>
+
+                <!-- Soft secondary colors if the chart ever contains
+                     additional series -->
+                <seriesColor order="1" color="#845EF7"/>
+                <seriesColor order="2" color="#00A896"/>
+
             </plot>
         </element>
         <element kind="rectangle" uuid="43b6f1f4-06b9-41a0-81e8-569126e66b96" x="540" y="218" width="254" height="158" forecolor="#E8EAF2" backcolor="#FFFFFF" mode="Opaque" radius="12">
@@ -113,18 +137,44 @@
         <element kind="staticText" uuid="ea226ea9-f53e-442a-95d3-d0a361529bd3" x="550" y="230" width="220" height="15" fontSize="10.0" bold="true" hTextAlign="Right">
             <text><![CDATA[درآمد بر اساس گروه کالا]]></text>
         </element>
-        <element kind="chart" chartType="pie" uuid="13383857-ee08-46d3-97a8-68879ed0bf6f" x="550" y="249" width="232" height="116" showLegend="false" backcolor="#FFFFFF">
+        <element kind="chart"
+                 chartType="pie"
+                 uuid="13383857-ee08-46d3-97a8-68879ed0bf6f"
+                 x="550"
+                 y="249"
+                 width="232"
+                 height="116"
+                 showLegend="true"
+                 backcolor="#FFFFFF">
+
             <dataset kind="pie">
                 <datasetRun subDataset="CategoryRevenueDataset">
                     <dataSourceExpression><![CDATA[$P{CATEGORY_DATA_SOURCE}]]></dataSourceExpression>
                 </datasetRun>
+
                 <keyExpression><![CDATA[$F{label}]]></keyExpression>
                 <valueExpression><![CDATA[$F{amount}]]></valueExpression>
-                <labelExpression><![CDATA[$F{label}]]></labelExpression>
+
+                <!-- Keep the labels out of the actual pie.
+                     The legend handles category names more cleanly. -->
+                <labelExpression><![CDATA[""]]></labelExpression>
             </dataset>
-            <plot backgroundAlpha="0.0" foregroundAlpha="1.0"/>
-        </element>
-        <element kind="staticText" uuid="0dba9299-4e0c-43c6-9cce-0a63993c6926" x="474" y="390" width="320" height="15" fontSize="11.0" bold="true" hTextAlign="Right">
+
+            <plot backgroundAlpha="0.0"
+                  foregroundAlpha="1.0">
+
+                <!-- Modern dashboard palette -->
+                <seriesColor order="0" color="#4D6FFF"/>
+                <seriesColor order="1" color="#845EF7"/>
+                <seriesColor order="2" color="#00A896"/>
+                <seriesColor order="3" color="#F59F00"/>
+                <seriesColor order="4" color="#F03E50"/>
+                <seriesColor order="5" color="#20C997"/>
+                <seriesColor order="6" color="#748FFC"/>
+                <seriesColor order="7" color="#9775FA"/>
+
+            </plot>
+        </element>        <element kind="staticText" uuid="0dba9299-4e0c-43c6-9cce-0a63993c6926" x="474" y="390" width="320" height="15" fontSize="11.0" bold="true" hTextAlign="Right">
             <text><![CDATA[جزئیات فروش]]></text>
         </element>
         <element kind="textField" uuid="65aa6b34-1443-4275-bcfd-2aa491432b11" x="0" y="391" width="294" height="12" style="Small">
